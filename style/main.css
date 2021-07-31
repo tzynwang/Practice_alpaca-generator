@@ -200,6 +200,7 @@ body {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   overflow: auto;
+  background-color: #faeee7;
 }
 
 .app__panel .styles li {
