@@ -1,4 +1,6 @@
 @import 'color';
+@import 'extend';
+@import 'reset';
 @import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap');
 
 $categories: accessories,
@@ -15,24 +17,8 @@ bend-forward,
 default,
 thick;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
   font-family: 'Palette Mosaic', cursive;
-}
-
-// reset scrollbar style
-::-webkit-scrollbar {
-  width: 0;
-}
-
-ol,
-ul {
-  list-style: none;
 }
 
 .app__canvas {
@@ -45,25 +31,10 @@ ul {
   width: 100%;
   height: 100%;
   position: absolute;
-  // background-size: cover;
-  // background-position: center center;
 
   img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
+    @extend %img-size-setting;
   }
-
-  // @each $category in $categories {
-  //   &.#{$category} {
-  //     background-image: url('../assets/#{$category}/default.png');
-  //   }
-  // }
-
-  // &.nose {
-  //   background-image: url('../assets/nose.png');
-  // }
 }
 
 .app__panel {
@@ -107,18 +78,11 @@ ul {
     }
 
     input {
-      opacity: 0;
+      @extend %input-setting;
     }
 
     .input-selected::before {
-      content: '';
-      width: calc(100% - 6px);
-      height: calc(100% - 6px);
-      position: absolute;
-      top: 0;
-      left: 0;
-      border: 3px dashed $dark;
-      opacity: 1;
+      @extend %selected-border;
     }
   }
 
@@ -126,7 +90,6 @@ ul {
     width: 100%;
     height: calc(100vh - 100vw - 56px - 56px);
     position: relative;
-
     overflow-y: auto;
 
     &::after {
@@ -142,8 +105,8 @@ ul {
       justify-content: center;
       align-items: center;
 
-      color: #fff;
-      background-color: #faeee7;
+      color: $white;
+      background-color: $secondary-pink-lighter;
       font-size: 3rem;
       text-align: center;
       text-transform: uppercase;
@@ -174,35 +137,15 @@ ul {
     }
 
     img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      object-position: center center;
+      @extend %img-size-setting;
     }
 
     input {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      opacity: 0;
+      @extend %input-setting;
     }
 
-    // @each $neck in $necks {
-    //   li.test--#{$neck} {
-    //     background-image: url('../assets/neck/#{$neck}.png');
-    //     background-size: cover;
-    //     background-position: center center;
-    //   }
-    // }
     .input-selected::before {
-      content: '';
-      width: calc(100% - 6px);
-      height: calc(100% - 6px);
-      position: absolute;
-      top: 0;
-      left: 0;
-      border: 3px dashed $dark;
-      opacity: 1;
+      @extend %selected-border;
     }
   }
 
