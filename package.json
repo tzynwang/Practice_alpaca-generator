@@ -1,0 +1,26 @@
+{
+  "name": "practice_alpaca-generator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "watchify": "watchify scripts/src/main.js -o scripts/bundleMain.js",
+    "getFolderList": "node scripts/src/getFolderList.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tzynwang/Practice_alpaca-generator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tzynwang/Practice_alpaca-generator/issues"
+  },
+  "homepage": "https://github.com/tzynwang/Practice_alpaca-generator#readme",
+  "devDependencies": {
+    "html2canvas": "^1.1.4",
+    "vue": "^2.6.14",
+    "watchify": "^4.0.0"
+  }
+}
