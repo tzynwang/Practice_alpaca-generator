@@ -201,7 +201,14 @@ body {
 
     .styles {
       height: calc(320px - 56px - 56px);
-      background-color: $secondary-pink-lighter;
+      
+      &::after {
+        z-index: 0;
+      }
+
+      li {
+        z-index: 1;
+      }
     }
   }
 }

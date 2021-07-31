@@ -267,7 +267,12 @@ body {
   }
   .app__panel .styles {
     height: calc(320px - 56px - 56px);
-    background-color: #faeee7;
+  }
+  .app__panel .styles::after {
+    z-index: 0;
+  }
+  .app__panel .styles li {
+    z-index: 1;
   }
 }
 /*# sourceMappingURL=main.css.map */
