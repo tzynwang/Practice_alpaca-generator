@@ -1,0 +1,233 @@
+@import 'color';
+@import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap');
+
+$categories: accessories,
+backgrounds,
+ears,
+eyes,
+hair,
+leg,
+mouth,
+neck;
+
+$necks: bend-backward,
+bend-forward,
+default,
+thick;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Palette Mosaic', cursive;
+}
+
+// reset scrollbar style
+::-webkit-scrollbar {
+  width: 0;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+.app__canvas {
+  width: 100vw;
+  height: 100vw;
+  position: relative;
+}
+
+.app__canvas__parts {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  // background-size: cover;
+  // background-position: center center;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  // @each $category in $categories {
+  //   &.#{$category} {
+  //     background-image: url('../assets/#{$category}/default.png');
+  //   }
+  // }
+
+  // &.nose {
+  //   background-image: url('../assets/nose.png');
+  // }
+}
+
+.app__panel {
+  height: calc(100vh - 100vw);
+
+  .categories,
+  .actions {
+    width: 100%;
+    height: 56px;
+    background-color: $primary-pink;
+  }
+
+  .categories {
+    ul {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+    }
+
+    li {
+      width: 56px;
+      height: 56px;
+      position: relative;
+      flex-shrink: 0;
+
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    li:nth-child(even) {
+      background-color: $secondary-pink;
+    }
+
+    @each $category in $categories {
+      li.#{$category} {
+        background-image: url('../assets/#{$category}/default.png');
+        background-size: cover;
+        background-position: center center;
+      }
+    }
+
+    input {
+      opacity: 0;
+    }
+
+    .input-selected::before {
+      content: '';
+      width: calc(100% - 6px);
+      height: calc(100% - 6px);
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 3px dashed $dark;
+      opacity: 1;
+    }
+  }
+
+  .styles {
+    width: 100%;
+    height: calc(100vh - 100vw - 56px - 56px);
+    position: relative;
+
+    overflow-y: auto;
+
+    &::after {
+      content: 'Alpaca Generator';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: -1;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      color: #fff;
+      background-color: #faeee7;
+      font-size: 3rem;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+    ul {
+      display: flex;
+      flex-wrap: wrap;
+      overflow: auto;
+    }
+
+    li {
+      width: 112px;
+      height: 112px;
+      position: relative;
+
+      flex-shrink: 0;
+
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+
+      background-color: $tertiary-lighter;
+    }
+
+    li:nth-child(even) {
+      background-color: $tertiary;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+    }
+
+    input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+
+    // @each $neck in $necks {
+    //   li.test--#{$neck} {
+    //     background-image: url('../assets/neck/#{$neck}.png');
+    //     background-size: cover;
+    //     background-position: center center;
+    //   }
+    // }
+    .input-selected::before {
+      content: '';
+      width: calc(100% - 6px);
+      height: calc(100% - 6px);
+      position: absolute;
+      top: 0;
+      left: 0;
+      border: 3px dashed $dark;
+      opacity: 1;
+    }
+  }
+
+  .actions {
+    display: flex;
+  }
+
+  .button {
+    height: 100%;
+    width: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border: none;
+    background-color: unset;
+    color: $dark;
+
+    font-family: inherit;
+    font-size: 1.25rem;
+    text-transform: uppercase;
+
+    &.download {
+      background-color: $secondary-pink;
+    }
+  }
+}
