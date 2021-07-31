@@ -1,0 +1,9 @@
+$bg-url: "../assets/alpacaBackground.png";
+$bg-width: 700px;
+$bg-height: 350px;
+
+@keyframes bg-scrolling {
+  100% {
+    background-position: $bg-width $bg-height;
+  }
+}

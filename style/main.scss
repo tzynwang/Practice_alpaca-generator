@@ -1,6 +1,7 @@
+@import 'reset';
 @import 'color';
 @import 'extend';
-@import 'reset';
+@import 'animationBackground';
 @import url('https://fonts.googleapis.com/css2?family=Palette+Mosaic&display=swap');
 
 $categories: accessories,
@@ -22,15 +23,15 @@ body {
 }
 
 .app__canvas {
+  position: relative;
   width: 100vw;
   height: 100vw;
-  position: relative;
 }
 
 .app__canvas__parts {
+  position: absolute;
   width: 100%;
   height: 100%;
-  position: absolute;
 
   img {
     @extend %img-size-setting;
@@ -54,9 +55,9 @@ body {
     }
 
     li {
+      position: relative;
       width: 56px;
       height: 56px;
-      position: relative;
       flex-shrink: 0;
 
       display: inline-flex;
@@ -90,19 +91,20 @@ body {
   }
 
   .styles {
+    position: relative;
     width: 100%;
     height: calc(100vh - 100vw - 56px - 56px);
-    position: relative;
     overflow-y: auto;
 
     &::after {
-      content: 'Alpaca Generator';
-      width: 100%;
-      height: 100%;
       position: absolute;
       top: 0;
       left: 0;
       z-index: -1;
+
+      content: 'Alpaca Generator';
+      width: 100%;
+      height: 100%;
 
       display: flex;
       justify-content: center;
@@ -122,9 +124,9 @@ body {
     }
 
     li {
+      position: relative;
       width: 112px;
       height: 112px;
-      position: relative;
 
       flex-shrink: 0;
 
@@ -187,7 +189,10 @@ body {
     height: 100vh;
     display: flex;
     align-items: center;
-    background-color: $dark;
+    
+    background: url($bg-url) repeat 0 0;
+    animation: bg-scrolling 20s infinite;
+    animation-timing-function: linear;
   }
 
   .app__canvas {
@@ -201,13 +206,10 @@ body {
 
     .styles {
       height: calc(320px - 56px - 56px);
+      background-color: $secondary-pink-lighter;
       
       &::after {
-        z-index: 0;
-      }
-
-      li {
-        z-index: 1;
+        content: '';
       }
     }
   }
