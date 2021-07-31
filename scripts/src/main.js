@@ -4,19 +4,6 @@ const Vue = require('vue/dist/vue.js')
 const app = new Vue({
   el: '#app',
   data: {
-    // canvas: [
-    //   'backgrounds',
-    //   'ears',
-    //   'leg',
-    //   'neck',
-    //   'nose',
-    //   'mouth',
-    //   'hair',
-    //   'eyes',
-    //   'accessories'
-    // ],
-    // canvasFileName: 'default',
-    // canvasImgSrc: '',
     categories: [
       'accessories',
       'ears',
@@ -35,7 +22,17 @@ const app = new Vue({
       eyes: ['angry', 'default', 'naughty', 'panda', 'smart', 'star'],
       mouth: ['astonished', 'default', 'eating', 'laugh', 'tongue'],
       neck: ['bend-backward', 'bend-forward', 'default', 'thick'],
-      leg: ['bubble-tea', 'cookie', 'default', 'game-console', 'tilt-backward', 'tilt-forward']
+      leg: ['bubble-tea', 'cookie', 'default', 'game-console', 'tilt-backward', 'tilt-forward'],
+      backgrounds: [
+        'blue50', 'blue60',
+        'blue70', 'darkblue30',
+        'darkblue50', 'darkblue70',
+        'green50', 'green60', 'green70',
+        'grey40', 'grey70',
+        'grey80', 'red50',
+        'red60', 'red70',
+        'yellow50', 'yellow60', 'yellow70'
+      ]
     },
     selectedStyle: {
       accessories: 'headphone',
@@ -44,7 +41,8 @@ const app = new Vue({
       eyes: 'default',
       mouth: 'default',
       neck: 'default',
-      leg: 'default'
+      leg: 'default',
+      backgrounds: 'default'
     }
   },
   computed: {
@@ -68,6 +66,9 @@ const app = new Vue({
     },
     getLegImgSrc () {
       return this.selectedStyle.leg ? `./assets/leg/${this.selectedStyle.leg}.png` : ''
+    },
+    getBackgroundsImgSrc () {
+      return this.selectedStyle.backgrounds ? `./assets/backgrounds/${this.selectedStyle.backgrounds}.png` : ''
     }
   },
   methods: {

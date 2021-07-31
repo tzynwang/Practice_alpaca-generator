@@ -14,7 +14,7 @@
   <div id="app">
     <div class="app__canvas">
       <div class="app__canvas__parts backgrounds">
-        <img src="./assets/backgrounds/default.png" alt="alpaca body-part layer">
+        <img :src="getBackgroundsImgSrc ? getBackgroundsImgSrc : './assets/backgrounds/default.png'" alt="alpaca body-part layer">
       </div>
       <div class="app__canvas__parts leg">
         <img :src="getLegImgSrc ? getLegImgSrc : './assets/leg/default.png'" alt="alpaca body-part layer">
@@ -41,19 +41,6 @@
         <img :src="getAccessoriesImgSrc? getAccessoriesImgSrc : './assets/accessories/default.png'"
           alt="alpaca body-part layer">
       </div>
-      <!-- <div v-for="layer in canvas" :key="layer" :class="['app__canvas__parts', layer]">
-        <img :src="'./assets/' + layer + '/' + canvasFileName + '.png'"
-          alt="alpaca body-part layer">
-      </div> -->
-      <!-- <div class="app__canvas__parts backgrounds"></div>
-      <div class="app__canvas__parts leg"></div>
-      <div class="app__canvas__parts neck"></div>
-      <div class="app__canvas__parts nose"></div>
-      <div class="app__canvas__parts mouth"></div>
-      <div class="app__canvas__parts ears"></div>
-      <div class="app__canvas__parts hair"></div>
-      <div class="app__canvas__parts eyes"></div>
-      <div class="app__canvas__parts accessories"></div> -->
     </div>
     <div class="app__panel">
       <!-- 部位 -->
@@ -72,12 +59,6 @@
             <input type="radio" :name="category" :value="item" v-model="selectedStyle[category]">
           </li>
         </ul>
-        <!-- <ul>
-          <li class="test--default"></li>
-          <li class="test--thick"></li>
-          <li class="test--bend-forward"></li>
-          <li class="test--bend-backward"></li>
-        </ul> -->
       </div>
       <div class="app__panel__parts actions">
         <button class="button shuffle" @click="shuffle">shuffle</button>
