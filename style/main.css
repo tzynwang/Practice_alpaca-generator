@@ -66,7 +66,6 @@ body {
 .app__panel .actions {
   width: 100%;
   height: 56px;
-  background-color: #ff8ba7;
 }
 
 .app__panel .categories ul {
@@ -93,6 +92,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.app__panel .categories li:nth-child(odd) {
+  background-color: #ff8ba7;
 }
 
 .app__panel .categories li:nth-child(even) {
@@ -235,7 +238,36 @@ body {
   text-transform: uppercase;
 }
 
+.app__panel .button.shuffle {
+  background-color: #ff8ba7;
+}
+
 .app__panel .button.download {
   background-color: #ffc6c7;
+}
+
+@media screen and (min-width: 768px) {
+  #app {
+    height: 100vh;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    background-color: #594a4e;
+  }
+  .app__canvas {
+    width: 320px;
+    height: 320px;
+  }
+  .app__panel {
+    height: 320px;
+    width: calc(100vw - 320px);
+  }
+  .app__panel .styles {
+    height: calc(320px - 56px - 56px);
+    background-color: #faeee7;
+  }
 }
 /*# sourceMappingURL=main.css.map */
