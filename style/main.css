@@ -62,6 +62,7 @@ body {
   position: relative;
   width: 100vw;
   height: 100vw;
+  background-color: #faeee7;
 }
 
 .app__canvas__parts {
