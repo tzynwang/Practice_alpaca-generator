@@ -19677,6 +19677,17 @@ const Vue = require('vue/dist/vue.js')
 const app = new Vue({
   el: '#app',
   data: {
+    canvas: [
+      'backgrounds',
+      'leg',
+      'ears',
+      'neck',
+      'nose',
+      'mouth',
+      'hair',
+      'eyes',
+      'accessories'
+    ],
     categories: [
       'accessories',
       'ears',
@@ -19688,9 +19699,9 @@ const app = new Vue({
       'leg',
       'backgrounds'
     ],
-    category: '',
+    selectedCategory: '',
     styles: {
-      accessories: ['earings', 'flower', 'glasses', 'headphone'],
+      accessories: ['earings', 'flower', 'glasses', 'default'],
       ears: ['default', 'tilt-backward', 'tilt-forward'],
       hair: ['bang', 'curls', 'default', 'elegant', 'fancy', 'quiff', 'short'],
       eyes: ['angry', 'default', 'naughty', 'panda', 'smart', 'star'],
@@ -19710,7 +19721,7 @@ const app = new Vue({
       ]
     },
     selectedStyle: {
-      accessories: 'headphone',
+      accessories: 'default',
       ears: 'default',
       hair: 'default',
       eyes: 'default',
@@ -19719,38 +19730,18 @@ const app = new Vue({
       neck: 'default',
       leg: 'default',
       backgrounds: 'default'
-    }
-  },
-  computed: {
-    getAccessoriesImgSrc () {
-      return this.selectedStyle.accessories ? `./assets/accessories/${this.selectedStyle.accessories}.png` : ''
     },
-    getErasImgSrc () {
-      return this.selectedStyle.ears ? `./assets/ears/${this.selectedStyle.ears}.png` : ''
-    },
-    getHairImgSrc () {
-      return this.selectedStyle.hair ? `./assets/hair/${this.selectedStyle.hair}.png` : ''
-    },
-    getEyesImgSrc () {
-      return this.selectedStyle.eyes ? `./assets/eyes/${this.selectedStyle.eyes}.png` : ''
-    },
-    getMouthImgSrc () {
-      return this.selectedStyle.mouth ? `./assets/mouth/${this.selectedStyle.mouth}.png` : ''
-    },
-    getNoseImgSrc () {
-      return this.selectedStyle.nose ? `./assets/nose/${this.selectedStyle.nose}.png` : ''
-    },
-    getNeckImgSrc () {
-      return this.selectedStyle.neck ? `./assets/neck/${this.selectedStyle.neck}.png` : ''
-    },
-    getLegImgSrc () {
-      return this.selectedStyle.leg ? `./assets/leg/${this.selectedStyle.leg}.png` : ''
-    },
-    getBackgroundsImgSrc () {
-      return this.selectedStyle.backgrounds ? `./assets/backgrounds/${this.selectedStyle.backgrounds}.png` : ''
+    handler: {
+      get: function (target, bodyPart) {
+        return target[bodyPart] ? `./assets/${bodyPart}/${target[bodyPart]}.png` : ''
+      }
     }
   },
   methods: {
+    imgProxy (category) {
+      const imgSrcProxy = new Proxy(this.selectedStyle, this.handler)
+      return imgSrcProxy[category]
+    },
     shuffle () {
       for (const key in this.selectedStyle) {
         this.selectedStyle[key] = this.styles[key][Math.floor(Math.random() * this.styles[key].length)]
