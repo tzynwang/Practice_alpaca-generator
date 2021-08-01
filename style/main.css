@@ -105,6 +105,8 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-size: cover;
+  background-position: center center;
 }
 
 .app__panel .categories li:nth-child(odd) {
@@ -117,50 +119,40 @@ body {
 
 .app__panel .categories li.accessories {
   background-image: url("../assets/accessories/default.png");
-  background-size: cover;
-  background-position: center center;
 }
 
 .app__panel .categories li.backgrounds {
   background-image: url("../assets/backgrounds/default.png");
-  background-size: cover;
-  background-position: center center;
 }
 
 .app__panel .categories li.ears {
   background-image: url("../assets/ears/default.png");
-  background-size: cover;
-  background-position: center center;
 }
 
 .app__panel .categories li.eyes {
   background-image: url("../assets/eyes/default.png");
-  background-size: cover;
-  background-position: center center;
 }
 
 .app__panel .categories li.hair {
   background-image: url("../assets/hair/default.png");
-  background-size: cover;
-  background-position: center center;
 }
 
 .app__panel .categories li.leg {
   background-image: url("../assets/leg/default.png");
-  background-size: cover;
-  background-position: center center;
 }
 
 .app__panel .categories li.mouth {
   background-image: url("../assets/mouth/default.png");
-  background-size: cover;
-  background-position: center center;
 }
 
 .app__panel .categories li.neck {
   background-image: url("../assets/neck/default.png");
-  background-size: cover;
-  background-position: center center;
+}
+
+.app__panel .categories li.github {
+  background-image: url("../assets/github/GitHub-Mark.svg");
+  background-size: 60% 60%;
+  background-repeat: no-repeat;
 }
 
 .app__panel .styles {

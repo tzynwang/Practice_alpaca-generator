@@ -49,6 +49,9 @@
           <li v-for="(item, index) in categories" :key="index" :class="[item, { 'input-selected': category === item }]">
             <input type="radio" name="category" :value="item" v-model="category">
           </li>
+          <a href="https://github.com/tzynwang/Practice_alpaca-generator#readme" target="_blank">
+            <li class="github"></li>
+          </a>
         </ul>
       </div>
       <!-- 選項 -->

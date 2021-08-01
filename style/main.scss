@@ -64,6 +64,9 @@ body {
       display: inline-flex;
       justify-content: center;
       align-items: center;
+
+      background-size: cover;
+      background-position: center center;
     }
 
     li:nth-child(odd) {
@@ -77,9 +80,13 @@ body {
     @each $category in $categories {
       li.#{$category} {
         background-image: url('../assets/#{$category}/default.png');
-        background-size: cover;
-        background-position: center center;
       }
+    }
+
+    li.github {
+      background-image: url('../assets/github/GitHub-Mark.svg');
+      background-size: 60% 60%;
+      background-repeat: no-repeat;
     }
 
     input {
