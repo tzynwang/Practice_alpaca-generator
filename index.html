@@ -13,40 +13,16 @@
 <body>
   <div id="app">
     <div class="app__canvas">
-      <div class="app__canvas__parts backgrounds">
-        <img :src="getBackgroundsImgSrc" alt="alpaca body-part layer">
-      </div>
-      <div class="app__canvas__parts leg">
-        <img :src="getLegImgSrc" alt="alpaca body-part layer">
-      </div>
-      <div class="app__canvas__parts ears">
-        <img :src="getErasImgSrc" alt="alpaca body-part layer">
-      </div>
-      <div class="app__canvas__parts neck">
-        <img :src="getNeckImgSrc" alt="alpaca body-part layer">
-      </div>
-      <div class="app__canvas__parts nose">
-        <img :src="getNoseImgSrc" alt="alpaca body-part layer">
-      </div>
-      <div class="app__canvas__parts mouth">
-        <img :src="getMouthImgSrc" alt="alpaca body-part layer">
-      </div>
-      <div class="app__canvas__parts hair">
-        <img :src="getHairImgSrc" alt="alpaca body-part layer">
-      </div>
-      <div class="app__canvas__parts eyes">
-        <img :src="getEyesImgSrc" alt="alpaca body-part layer">
-      </div>
-      <div class="app__canvas__parts accessories">
-        <img :src="getAccessoriesImgSrc" alt="alpaca body-part layer">
+      <div v-for="layer in canvas" :class="['app__canvas__parts', layer]">
+        <img :src="imgProxy(layer)" alt="alpaca body-part layer">
       </div>
     </div>
     <div class="app__panel">
       <!-- 部位 -->
       <div class="app__panel__parts categories">
         <ul>
-          <li v-for="(item, index) in categories" :key="index" :class="[item, { 'input-selected': category === item }]">
-            <input type="radio" name="category" :value="item" v-model="category">
+          <li v-for="(item, index) in categories" :key="index" :class="[item, { 'input-selected': selectedCategory === item }]">
+            <input type="radio" name="category" :value="item" v-model="selectedCategory">
           </li>
           <li class="github">
             <a href="https://github.com/tzynwang/Practice_alpaca-generator#readme" target="_blank">
@@ -57,9 +33,9 @@
       <!-- 選項 -->
       <div class="app__panel__parts styles">
         <ul>
-          <li v-for="item in styles[category]" :class="{'input-selected': selectedStyle[category] === item}">
-            <img :src="'./assets/' + category + '/' + item + '.png'" alt="alpaca body-part option">
-            <input type="radio" :name="category" :value="item" v-model="selectedStyle[category]">
+          <li v-for="item in styles[selectedCategory]" :class="{'input-selected': selectedStyle[selectedCategory] === item}">
+            <img :src="'./assets/' + selectedCategory + '/' + item + '.png'" alt="alpaca body-part option">
+            <input type="radio" :name="selectedCategory" :value="item" v-model="selectedStyle[selectedCategory]">
           </li>
         </ul>
       </div>
