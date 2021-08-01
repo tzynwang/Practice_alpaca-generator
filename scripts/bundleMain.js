@@ -19733,7 +19733,7 @@ const app = new Vue({
     },
     handler: {
       get: function (target, bodyPart) {
-        return target[bodyPart] ? `./assets/${bodyPart}/${target[bodyPart]}.png` : ''
+        return `./assets/${bodyPart}/${target[bodyPart]}.png`
       }
     }
   },
