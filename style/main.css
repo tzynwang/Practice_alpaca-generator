@@ -145,6 +145,10 @@ body {
   background-image: url("../assets/mouth/default.png");
 }
 
+.app__panel .categories li.nose {
+  background-image: url("../assets/nose/default.png");
+}
+
 .app__panel .categories li.neck {
   background-image: url("../assets/neck/default.png");
 }

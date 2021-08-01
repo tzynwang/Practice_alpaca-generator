@@ -19683,6 +19683,7 @@ const app = new Vue({
       'hair',
       'eyes',
       'mouth',
+      'nose',
       'neck',
       'leg',
       'backgrounds'
@@ -19694,6 +19695,7 @@ const app = new Vue({
       hair: ['bang', 'curls', 'default', 'elegant', 'fancy', 'quiff', 'short'],
       eyes: ['angry', 'default', 'naughty', 'panda', 'smart', 'star'],
       mouth: ['astonished', 'default', 'eating', 'laugh', 'tongue'],
+      nose: ['beard', 'default'],
       neck: ['bend-backward', 'bend-forward', 'default', 'thick'],
       leg: ['bubble-tea', 'cookie', 'default', 'game-console', 'tilt-backward', 'tilt-forward'],
       backgrounds: [
@@ -19713,6 +19715,7 @@ const app = new Vue({
       hair: 'default',
       eyes: 'default',
       mouth: 'default',
+      nose: 'default',
       neck: 'default',
       leg: 'default',
       backgrounds: 'default'
@@ -19733,6 +19736,9 @@ const app = new Vue({
     },
     getMouthImgSrc () {
       return this.selectedStyle.mouth ? `./assets/mouth/${this.selectedStyle.mouth}.png` : ''
+    },
+    getNoseImgSrc () {
+      return this.selectedStyle.nose ? `./assets/nose/${this.selectedStyle.nose}.png` : ''
     },
     getNeckImgSrc () {
       return this.selectedStyle.neck ? `./assets/neck/${this.selectedStyle.neck}.png` : ''
