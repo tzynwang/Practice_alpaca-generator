@@ -14,7 +14,8 @@
   <div id="app">
     <div class="app__canvas">
       <div class="app__canvas__parts backgrounds">
-        <img :src="getBackgroundsImgSrc ? getBackgroundsImgSrc : './assets/backgrounds/default.png'" alt="alpaca body-part layer">
+        <img :src="getBackgroundsImgSrc ? getBackgroundsImgSrc : './assets/backgrounds/default.png'"
+          alt="alpaca body-part layer">
       </div>
       <div class="app__canvas__parts leg">
         <img :src="getLegImgSrc ? getLegImgSrc : './assets/leg/default.png'" alt="alpaca body-part layer">
@@ -49,9 +50,10 @@
           <li v-for="(item, index) in categories" :key="index" :class="[item, { 'input-selected': category === item }]">
             <input type="radio" name="category" :value="item" v-model="category">
           </li>
-          <a href="https://github.com/tzynwang/Practice_alpaca-generator#readme" target="_blank">
-            <li class="github"></li>
-          </a>
+          <li class="github">
+            <a href="https://github.com/tzynwang/Practice_alpaca-generator#readme" target="_blank">
+            </a>
+          </li>
         </ul>
       </div>
       <!-- 選項 -->
